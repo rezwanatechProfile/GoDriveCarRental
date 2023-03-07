@@ -1,0 +1,26 @@
+{
+  "name": "rezcarrental",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "auto": "npx nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rezwanatechProfile/RezCarRental.git"
+  },
+  "author": "Rezwana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rezwanatechProfile/RezCarRental/issues"
+  },
+  "homepage": "https://github.com/rezwanatechProfile/RezCarRental#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.0.1"
+  }
+}
