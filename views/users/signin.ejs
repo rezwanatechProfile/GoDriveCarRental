@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <%- include ('../partials/head.ejs') %>
+  <title>User Sign in</title>
+</head>
+<body>
+
+
+
+  <header id="home-section">
+    <div class="dark-overlay">
+      <div class="home-inner container">
+        <div class="row">
+          <div class="col-lg-8 d-none d-lg-block">
+            <h1 class="mt-5">
+              <strong>Accelerate your entrepreneurship</strong> 
+            </h1>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="card bg-success text-center card-form">
+              <div class="card-body">
+                <h3>Welcome Back</h3>
+                <p>Log in with GoDrive</p>
+                <form action="/users/signin" method="POST">
+                  <div class="form-group mb-3">
+                    <input type="text" class="form-control form-control-lg" name="username" placeholder="Username">
+                  </div>
+                  <div class="form-group mb-3">
+                    <input type="password" class="form-control form-control-lg" name="password" placeholder="Password">
+                  </div>
+                  <input type="submit" value="Submit" class="btn btn-outline-light btn-block">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</body>
+</html>

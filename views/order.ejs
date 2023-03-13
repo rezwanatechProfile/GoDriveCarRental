@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('./partials/head.ejs') %>
+    <title>Car rental | Book a <%=car.carName%></title>
+</head>
+<body>
+    <nav>
+        <a href="/cars">Home</a>
+    </nav>
+    <h1>You selected <%=car.carName%></h1>
+    <p>Your pick up date is <%=car.dateFrom%></p>
+    <p>Your return date is <%=car.dateTo%></p>
+    <form action="/cars/cart/<%=car._id;%>?_method=DELETE" method="POST">
+        <input class="btn" type="submit" value="DELETE SELECTION">
+    </form>
+
+    <form action="/cars/editorder/<%=car._id;%>">
+        <input class="btn" type="submit" value="Edit SELECTION">
+    </form>
+
+    <form action="/cars/confirm/<%=car._id;%>">
+        <input class="btn" type="submit" value="CONFIRM RESERVE">
+    </form>
+
+</body>
+</html>

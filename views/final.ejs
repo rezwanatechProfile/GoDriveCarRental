@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('./partials/head.ejs') %>
+    <title>Car rental | Book a <%=car.carName%></title>
+</head>
+<body>
+    <nav>
+        <a href="/cars">Home</a>
+    </nav>
+    <h1>Thank You For Your Order!</h1>
+    <p>You reserved <%=car.carName%> from <%=car.dateFrom%> to <%=car.dateTo%></p>
+    <p>Your Total Price is: <%= (car.dateFrom- car.dateTo) * car.pricePerDay%>
+    
+    </p>
+
+</body>
+</html>

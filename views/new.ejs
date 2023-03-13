@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('./partials/head.ejs') %>
+        <meta charset="UTF-8">
+        <title>List your car</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg mb-2 navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand">GoDrive</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="/cars">HOME</a></li>
+            </ul>
+        </div>
+
+        <form action="" class="form-inline ml-auto d-flex">
+            <input type="text" class="form-control input-search" placeholder="Search">
+            <button class="btn btn-outline-primary">Search</button>
+        </form>
+        
+    </div>
+    </nav> 
+    
+
+    <!-- //header -->
+		<header id="new-page-header">
+			<div class="container">
+			  <div class="row">
+				<div class="col-md-10 m-auto text-center">
+					<h1>Start building a small car sharing business with GoDrive</h1>
+				</div>
+			  </div>
+			</div>
+		  </header>
+		
+
+    <section id="" class="py-3">
+        <div class="container container-new">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card p-4">
+                        <div class="card-body">
+                            <h3 class="text-center text-dark">Build a business that’s...Scalable, Accessible, Flexible
+                            </h3>
+                            <hr>
+                            <form action="/cars/host" method="POST">
+                            <div class="row text-dark">
+                                <div class="col-md-6 mt-2">
+                                    <div class="form-group">
+                                        <label>Car</label>
+                                        <input type="text" name="carName" class="form-control" placeholder="Car Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-2">
+                                    <div class="form-group">
+                                        <label>Title</label>
+                                        <input type="text" name="title" class="form-control"
+                                            placeholder="ex: Toyota Camry 2022">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-2">
+                                    <div class="form-group">
+                                        <label>Owner</label>
+                                        <input type="text" name="ownerName" class="form-control"
+                                            placeholder="Owner name">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mt-2">
+                                    <div class="form-group">
+                                        <label>Rating</label>
+                                        <input type="number" name="rating" class="form-control"
+                                            placeholder="rate out of 5">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-3 mt-2">
+                                    <div class="form-group">
+                                        <label>Price Per Day</label>
+                                        <input type="number" name="pricePerDay" class="form-control" placeholder="$">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 mt-2">
+                                    <div class="form-group">
+                                        <label>Image</label>
+                                        <input type="url" name="img" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 mt-2">
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <!-- <input type="text" name ="description" class="form-control" placeholder=""> -->
+                                        <textarea type="text" class="form-control" name="description"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mt-2">
+                                    <div class="form-group">
+                                        <label>Location</label>
+                                        <input list="listItem" type="text" name="location" class="form-control"
+                                            placeholder="Select one">
+                                        <datalist id="listItem">
+                                            <option value="Alexandria">
+                                            <option value="Ashburn">
+                                            <option value="Fairfax">
+                                            <option value="Manassas">
+                                            <option value="Chantily">
+                                            <option value="Falls Church">
+                                            <option value="Winchester">
+                                            <option value="Fredericksburg">
+                                            <option value="Springfield">
+                                            <option value="Vienna">
+                                            <option value="Arlington">
+                                            <option value="McLean">
+                                            <option value="Woodbridge">
+                                            <option value="Sterling">
+                                            <option value="Lorton">
+                                        </datalist>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mt-2">
+                                    <div class="form-check">
+                                        <label class="form-check-label" for="flexCheckDefault">Is Registered?</label>
+                                        <input type="checkbox" class="form-check-input" name="tag">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 mt-2">
+                                    <div class="form-check">
+                                        <label class="form-check-label" for="flexCheckDefault">Is Available?</label>
+                                        <input type="checkbox" class="form-check-input" name="isAvailable">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mt-2">
+                                    <div class="form-group">
+                                        <label>Available From</label>
+                                        <input type="date" class="form-control" name="dateFrom">
+                                    </div>
+                                </div>
+
+                                
+
+                                <div class="col-md-12 mt-2">
+                                    <div class="form-group">
+                                        <label>Features</label>
+                                        <textarea type="text" class="form-control" name="features"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 mt-2">
+                                    <div class="form-group">
+                                        <label>Guidlines</label>
+                                        <textarea type="text" class="form-control" name="guidelines"></textarea>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-md-12 mt-3">
+                                    <div class="form-group text-center">
+                                        <input type="submit" value="SUBMIT" class="btn btn-outline-danger btn-block">
+                                    </div>
+                                </div>
+                            </div>
+                         </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+</body>
+
+</html>

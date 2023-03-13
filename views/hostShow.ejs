@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('./partials/head.ejs') %>
+    <title>Car rental | Book a <%=car.carName%></title>
+</head>
+<body>
+    <nav>
+        <a href="/cars">Home</a>
+    </nav>
+    <div class="container">
+        <h1>Rent a <%=car.carName%></h1>
+    <span><img src="<%=car.img%>"></span>
+    <h2><strong><%=car.title%></strong></h2>
+    <div class="owner">
+        <p>Hosted By: <%=car.ownerName%> </p>
+        <p>Rating: <%=car.rating%> </p>
+        <p>Available: <% if(car.isAvailable === true){ %>
+            It is ready to pickup.
+        <% } else { %>
+            It is not ready to picup.
+        <% } %></p>
+        <p>Your listing car is available from <%=car.dateFrom %></p>
+    </div>
+    <div class="des">
+        <p>Description: <%=car.description%> </p>
+        <p>Price: $<%=car.pricePerDay%>/Day </p>
+        <p>Location: <%=car.location%> </p>
+        <p>Features:
+        <ul>
+            <% for (let i = 0; i < car.features.length; i++) { %>
+                <li>
+                <%=car.features[i];%>	
+                </li>
+                <% } %>
+        </ul> </p>
+        <p>Guidlines: 	
+            <ul>
+                <% for (let i = 0; i < car.guidelines.length; i++) { %>
+                    
+                    <li>
+                    <%=car.guidelines[i];%>	
+                    </li>
+                    <% } %>
+            </ul> </p>
+ 
+    </div> 
+    </div>
+    
+    <div class="form-box">
+        <h2>Edit your pick time and location</h2>
+        <form action="/cars/<%=car._id; %>?_method=PUT" method="POST">
+            Available From:<input type="date" name ="dateFrom" value="<%=car.dateFrom == null ? '' : car.dateFrom.toISOString().split('T')[0] %>"><br/>
+            Location<input list="listItem" type="text" name ="location" placeholder="Select one" value="<%=car.location%>"/><br/>
+            <datalist id="listItem">
+                <option value="Alexandria">
+                <option value="Ashburn">
+                <option value="Fairfax">
+                <option value="Manassas">
+                <option value="Chantily">
+                <option value="Falls Church">
+                <option value="Winchester">
+            </datalist>
+            <input type="submit" value="EDIT"/>
+        </form> 
+    </div>
+    <div>
+        <form action="/cars/<%=car._id;%>?_method=DELETE" method="POST">
+            <input type="submit" value="DELETE SELECTION">
+          </form>	
+    </div>
+<!-- To show Your listing -->
+  
+</body>
+</html>
