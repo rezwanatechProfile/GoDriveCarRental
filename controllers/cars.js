@@ -2,6 +2,20 @@ const express = require('express');
 const router = express.Router()
 const Car = require('../models/cars.js')
 const carSeed = require('../models/carSeed.js');
+const multer = require('multer')
+const path = require('path')
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/uploads/')
+    },
+    filename: (req, file, cb) => {
+        console.log(file)
+        cb(null, Date.now() + path.extname(file.originalname))
+    }  
+})
+
+const upload = multer({storage: storage})
 
 //Routes
 
@@ -34,8 +48,6 @@ router.get("/host", (req,res)=>{
         })
     })
 });
-
-
 
 
 //NEW
@@ -126,7 +138,7 @@ router.put('/editorder/:id', (req, res) => {
 })
 
 //CREATE
-router.post("/host", (req, res) => {
+router.post("/host", upload.single('img'), (req, res) => {
 
     if(req.body.isAvailable === "on"){
         req.body.isAvailable = true
@@ -140,15 +152,24 @@ router.post("/host", (req, res) => {
         req.body.tag = false
     }
 
-    Car.create(req.body, (error, createdCar)=>{
+    Car.create(req.body, async(error, createdCar)=>{
+
         if (error){
         	console.log(error);
         	res.send(error);
         }
         else{
+          if (req.file) {
+            createdCar.img = req.file.filename
+            console.log(createdCar.img)
+            await createdCar.save()
+          }
 	        res.redirect("/cars/host")
         }
+
+        
     }); 
+    
 })
 
 
@@ -168,7 +189,8 @@ router.get('/editorder/:id', (req, res) => {
 })
 
 //DELETE
-router.delete('/:id',(req,res)=>{
+router.delete('/host/:id',(req,res)=>{
+
     Car.findByIdAndDelete(req.params.id,(error, deletedCar)=>{
         //findBy
         if(error){

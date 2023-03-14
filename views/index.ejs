@@ -48,12 +48,23 @@
 			
 			<div class="row">
 			<%cars.forEach(car=> {%>
+        
 				<div class="col-md-4">
 					<div class="card-columns mt-4">
 							<div class="card">
-								<a href="/cars/<%=car._id; %>"><img src="<%=car.img; %>" alt=""
+								<a href="/cars/<%=car._id; %>">
+                  <% if(car.tag===true){ %>
+
+                  <img src="/uploads/<%=car.img; %>" alt="" class="img-fluid card-img-top">
+
+                  <% } else { %>
+
+                  <img src="<%=car.img; %>" alt=""
 										class="img-fluid card-img-top">
-	
+
+                    <% } %>
+                    
+
 									<div class="card-body">
 										<h5 class="text-muted">
 											<%=car.title;%>
@@ -67,11 +78,11 @@
 										</div>
 									</div>
 								</a>
-							</div>
-						
+							</div>	
 					</div>
 				</div>
-				<% }) %>
+       
+        <% }) %>
 			</div>
 		</div>
 	</section>

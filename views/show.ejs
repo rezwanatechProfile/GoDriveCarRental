@@ -36,7 +36,7 @@
       <div class="row">
         <div class="text-center">
             <h1 class="text-center m-4">Drive a <%=car.carName%></h1>
-            <p><img class="img-fluid" src="<%=car.img%>"></p>
+            <p><img class="img-fluid" src="/uploads/<%=car.img%>"></p>
         </div>
       </div>
     </div>
@@ -70,15 +70,7 @@
                     </li>
                     <% } %>
             </ul> </p>
-            <p><strong>Guidlines:</strong>
-                <ul>
-                    <% for (let i = 0; i < car.guidelines.length; i++) { %>
-                        
-                        <li>
-                        <%=car.guidelines[i];%>	
-                        </li>
-                        <% } %>
-                </ul> </p>
+            <p><strong>Guidlines:</strong><%=car.description%></p>
      
               </div> 
             </div>
@@ -98,14 +90,14 @@
                 <div class="col-md-12 mt-2">
                   <div class="form-group">
                     <label>From</label>
-                    <input type="date" name ="dateFrom" value="<%=car.dateFrom == null ? '' : car.dateFrom.toISOString().split('T')[0] %>" class="form-control" placeholder="From:">
+                    <input type="date" name ="dateFrom" value="<%=car.dateFrom; %>" class="form-control" placeholder="From:">
                   </div>
                 </div>
 
                 <div class="col-md-12 mt-2">
                   <div class="form-group">
                     <label>To</label>
-                    <input type="date" name ="dateTo" value="<%=car.dateTo == null ? '' : car.dateTo.toISOString().split('T')[0] %>" class="form-control" placeholder="To">
+                    <input type="date" name ="dateTo" value="<%=car.dateTo; %>" class="form-control" placeholder="To">
                   </div>
                 </div>
                 
@@ -145,7 +137,7 @@
 
         <div class="card p-4 mt-3">
             <div class="card-body">
-               
+
                 <h5 class="text-center">Review your experience</h5>
                 <hr>
                 <div class="row">

@@ -2,11 +2,14 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
 const Car = require('./models/cars.js')
+
 const methodOverride = require("method-override")
 const carsController = require('./controllers/cars.js')
 const usersController = require('./controllers/users.js')
-
 require('dotenv').config();
+
+
+
 
 const session = require('express-session')
 const SESSION_SECRET = process.env.SESSION_SECRET
@@ -32,6 +35,7 @@ mongoose.set('strictQuery', true);
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: false,
 });
+
 //Mongo error/success
 const db = mongoose.connection
 

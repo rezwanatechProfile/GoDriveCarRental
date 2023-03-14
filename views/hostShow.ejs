@@ -5,71 +5,190 @@
     <title>Car rental | Book a <%=car.carName%></title>
 </head>
 <body>
-    <nav>
-        <a href="/cars">Home</a>
-    </nav>
-    <div class="container">
-        <h1>Rent a <%=car.carName%></h1>
-    <span><img src="<%=car.img%>"></span>
-    <h2><strong><%=car.title%></strong></h2>
-    <div class="owner">
-        <p>Hosted By: <%=car.ownerName%> </p>
-        <p>Rating: <%=car.rating%> </p>
-        <p>Available: <% if(car.isAvailable === true){ %>
-            It is ready to pickup.
-        <% } else { %>
-            It is not ready to picup.
-        <% } %></p>
-        <p>Your listing car is available from <%=car.dateFrom %></p>
+    <nav class="navbar navbar-expand-md mb-2 navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand">GoDrive</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse ml-auto" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link text-primary" href="/cars">HOME</a></li>
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="/cars/new">BECOME A HOST</a></li>
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="/cars/host/">YOUR LIST</a></li>
+            </ul>
+            
+        </div>
+        <form action="" class="form-inline ml-auto d-flex">
+            <input type="text" class="form-control input-search" placeholder="Search">
+            <button class="btn btn-outline-primary">Search</button>
+        </form>
     </div>
-    <div class="des">
-        <p>Description: <%=car.description%> </p>
-        <p>Price: $<%=car.pricePerDay%>/Day </p>
-        <p>Location: <%=car.location%> </p>
-        <p>Features:
-        <ul>
-            <% for (let i = 0; i < car.features.length; i++) { %>
-                <li>
-                <%=car.features[i];%>	
-                </li>
-                <% } %>
-        </ul> </p>
-        <p>Guidlines: 	
+    </nav> 
+ 
+
+
+<!-- PAGE HEADER -->
+<header id="show-page-header">
+    <div class="container">
+      <div class="row">
+        <div class="text-center">
+            <h1 class="text-center m-4">Drive a <%=car.carName%></h1>
+            <p><img class="img-fluid" src="/uploads/<%=car.img; %>"></p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <section id="" class="py-3 text-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card p-4">
+            <div class="card-body">
+              <h4><%=car.title%></h4>
+              <div class="owner d-flex justify-content-between">
+                <p><strong>Hosted By:</strong> <%=car.ownerName%> </p>
+                <p><strong>Rating:</strong> <%=car.rating%> <i class="bi bi-star-fill"></i></p>
+            </div>
+            <div class="des">
+            <p><strong>Description:</strong> <%=car.description%> </p>
+            <p><strong>Availability:</strong> <% if(car.isAvailable === true){ %>
+                It is ready to pickup.
+            <% } else { %>
+                It is not ready to picup.
+            <% } %></p>
+            <p>Your listing car is available from <%=car.dateFrom %></p>
+            <p>Pick Up Location <%=car.location %></p>
+            <p><strong>Features:</strong>
             <ul>
-                <% for (let i = 0; i < car.guidelines.length; i++) { %>
-                    
+                <% for (let i = 0; i < car.features.length; i++) { %>
                     <li>
-                    <%=car.guidelines[i];%>	
+                    <%=car.features[i];%>	
                     </li>
                     <% } %>
             </ul> </p>
+            <p><strong>Guidlines:</strong> <%=car.guidelines%></p>
+     
+              </div> 
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-6">
+          <div class="card p-4">
+            <div class="card-body">
+              <h3 class="text-left"><strong>$<%=car.pricePerDay%>/Day</strong></h3>
+              <h5 class="text-center">Edit Your Listing</h5>
+              <hr>
+              <form action="/cars/<%=car._id; %>?_method=PUT" method="POST">
+              <div class="row">
+
+                <div class="col-md-12 mt-2">
+                  <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" name ="title" value="<%=car.title; %>" class="form-control" placeholder="From:">
+                  </div>
+                </div>
+
+                <div class="col-md-6 mt-2">
+                  <div class="form-group">
+                    <label>Price</label>
+                    <input type="number" name ="pricePerDay" value="<%=car.pricePerDay; %>" class="form-control" placeholder="$">
+                  </div>
+                </div>
+
+                <div class="col-md-6 mt-2">
+                  <div class="form-group">
+                    <label>Total Trips</label>
+                    <input type="number" name ="totalTrip" value="<%=car.totalTrip; %>" class="form-control" placeholder="0">
+                  </div>
+                </div>
+
+                <div class="col-md-12 mt-2">
+                  <div class="form-group">
+                    <label>Features</label>
+                    <select class="form-control" value="<%=car.features; %>" name="features[]" multiple>
+                      <option value="Automatic Transmission">Automatic Transmission</option>
+                      <option value="GPS">GPS</option>
+                      <option value="USB Input">USB Input</option>
+                      <option value="USB Charger">USB Charger</option>
+                      <option value="Must be 21+ to book">Must be 21+ to book</option>
+                      <option value="Keyless entry">Keyless entry</option>
+                      <option value="Convertible">Convertible</option>
+                      <option value="Bluetooth">Bluetooth</option>
+                      <option value="Heated seats">Heated seats</option>
+                      <option value="Backup camera">Backup camera</option>
+                      <option value="Digital dashboard">Digital dashboard</option>
+                      <option value="Apple CarPlay">Apple CarPlay</option>
+                      <option value="Android Auto">Android Auto</option>
+                      <option value="Ventilated seats">Ventilated seats</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-12 mt-2">
+                  <div class="form-group">
+                    <label>Available From</label>
+                    <input type="date" name ="dateFrom" value="<%=car.dateFrom == null ? '' : car.dateFrom.toISOString().split('T')[0] %>" class="form-control" placeholder="From:">
+                  </div>
+                </div>
+
+                <div class="col-md-12 mt-2">
+                  <div class="form-group">
+                    <label>Pick up & return location</label>
+                    <input list="listItem" type="text" name ="location" placeholder="Select one" value="<%=car.location%>" class="form-control">
+                    <datalist id="listItem">
+                        <option value="Alexandria">
+                        <option value="Ashburn">
+                        <option value="Fairfax">
+                        <option value="Manassas">
+                        <option value="Chantily">
+                        <option value="Falls Church">
+                        <option value="Winchester">
+                        <option value="Fredericksburg">
+                        <option value="Springfield">
+                        <option value="Vienna">
+                        <option value="Arlington">
+                        <option value="McLean">
+                        <option value="Woodbridge">
+                        <option value="Sterling">
+                        <option value="Lorton">
+                    </datalist>
+                  </div>
+                </div>
+
+                <div class="col-md-12 mt-2">
+                  <div class="form-group">
+                    <label>Guidlines</label>
+                    <input type="text" name ="guidelines" value="<%=car.guidelines; %>" class="form-control" placeholder="text">
+                  </div>
+                </div>
+
+                <div class="col-md-12 mt-2">
+                  <div class="form-group text-center">
+                    <input type="submit" value="EDIT" class="btn btn-outline-danger btn-block">
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="mt-2 text-center">
+              <form action="/cars/host/<%=car._id;%>?_method=DELETE" method="POST">
+                <input type="submit" value="DELETE SELECTION" class="btn btn-outline-danger btn-block">
+              </form>
+            </div>
+            </div>
+          </div>
+
+          
+      </div>
+    </div>
+  </section>
+
  
-    </div> 
-    </div>
-    
-    <div class="form-box">
-        <h2>Edit your pick time and location</h2>
-        <form action="/cars/<%=car._id; %>?_method=PUT" method="POST">
-            Available From:<input type="date" name ="dateFrom" value="<%=car.dateFrom == null ? '' : car.dateFrom.toISOString().split('T')[0] %>"><br/>
-            Location<input list="listItem" type="text" name ="location" placeholder="Select one" value="<%=car.location%>"/><br/>
-            <datalist id="listItem">
-                <option value="Alexandria">
-                <option value="Ashburn">
-                <option value="Fairfax">
-                <option value="Manassas">
-                <option value="Chantily">
-                <option value="Falls Church">
-                <option value="Winchester">
-            </datalist>
-            <input type="submit" value="EDIT"/>
-        </form> 
-    </div>
-    <div>
-        <form action="/cars/<%=car._id;%>?_method=DELETE" method="POST">
-            <input type="submit" value="DELETE SELECTION">
-          </form>	
-    </div>
-<!-- To show Your listing -->
-  
 </body>
 </html>
