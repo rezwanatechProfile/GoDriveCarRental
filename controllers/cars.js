@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router()
 const Car = require('../models/cars.js')
-const carSeed = require('../models/carSeed.js');
+const Customer = require('../models/customer.js')
+const carSeed = require('../models/carseed.js');
 const multer = require('multer')
 const path = require('path')
 
@@ -21,7 +22,6 @@ const upload = multer({storage: storage})
 
 //Seed
 router.get('/seed', (req, res) => {
-    Car.deleteMany({}, (error, allCars) => {});
 	Car.create(carSeed, (error, data) => {
 		res.redirect('/cars');
 	});
@@ -87,16 +87,17 @@ router.get('/final/:id', (req,res) => {
 
 
 
-//DELETE the order
-router.delete('/cart/:id',(req,res)=>{
-    Car.findByIdAndDelete(req.params.id,(error, deletedCar)=>{
+//DELETE the order(Actually updating)
+router.put('/delete/:id',(req,res)=>{
+    Car.findByIdAndUpdate(req.params.id, req.body, { new: true}, 
+      (err, updatedCar) => {
         //findBy
-        if(error){
-            console.log(error)
-            res.send(error)
+        if(err){
+            console.log(err)
+            res.send(err)
         }else{
-            console.log(deletedCar)
-            res.redirect('/cars')            
+            console.log(updatedCar)
+            res.redirect('/cars/'+ req.params.id)            
         }
     })
 })
@@ -119,6 +120,7 @@ router.put('/cart/:id', (req, res) => {
 	})
 })
 
+
 //UPDATE of order page from editOrder page. Then return back to order page
 router.put('/editorder/:id', (req, res) => {
 
@@ -131,7 +133,7 @@ router.put('/editorder/:id', (req, res) => {
 		} else {
 			console.log(selectedCar)
 			// redirect to the index route 
-			res.redirect('/cars/final/'+req.params.id)
+			res.redirect('/cars/order/'+req.params.id)
 		}
 
 	})
@@ -189,6 +191,8 @@ router.get('/editorder/:id', (req, res) => {
 })
 
 //DELETE
+
+//DELETE host listing
 router.delete('/host/:id',(req,res)=>{
 
     Car.findByIdAndDelete(req.params.id,(error, deletedCar)=>{
@@ -227,23 +231,77 @@ router.put('/:id', (req, res) => {
 	})
 })
 
+//post reviews
+// router.post('/review/:id', (req, res) => {
+// 	Car.findByIdAndUpdate(req.params.id, req.body, { new: true}, 
+// 	(err, selectedCar) => {
+
+// 		if(err) {
+// 			console.log(err)
+// 			res.send(err)
+// 		} else {
+// 			console.log(selectedCar)
+// 			// redirect to the index route 
+// 			res.redirect('/cars/'+req.params.id)
+// 		}
+
+// 	})
+// })
+
+
+// //CREATE
+// //Post Reviews
+router.post('/review/:id', (req, res) => {
+
+  Customer.create(req.body.id, req.body, (error, createdCar)=>{
+
+      if (error){
+        console.log(error);
+        res.send(error);
+      }
+      else{
+        res.redirect('/cars/'+req.params.id)
+       
+  }
+        
+      
+
+      
+  }); 
+  
+})
+
+
 
 //SHOW
 router.get('/:id', (req,res) => {
-    Car.findById(req.params.id, (err, foundCar) => {
+    Car.findById(req.params.id, (err, foundCar, foundCus) => {
         res.render("show.ejs", {
             car: foundCar
         })
-    })   
+    }) 
+
 })
 
+//Host Show
 router.get('/host/:id', (req,res) => {
     Car.findById(req.params.id, (err, foundCar) => {
         res.render("hostShow.ejs", {
             car: foundCar
         })
-    })   
+    }) 
 })
+
+// router.get('/show/:id', (req,res) => {
+//   Customer.findById(req.params.id, (err, foundCus) => {
+//     res.render("hostShow.ejs", {
+//         customer: foundCus
+//     })
+// })  
+
+// })
+
+
 
 
 module.exports = router

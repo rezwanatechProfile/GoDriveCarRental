@@ -164,6 +164,18 @@ nav ul li {
     opacity: 0.8;
   }
 
+  #final-page-header {
+    height: 100vh;
+    background: url('../uploads/finalpage.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    color: rgb(9, 8, 8);
+    border-bottom: 1px #eee solid;
+    padding-top: 30px;
+    opacity: 0.8;
+  }
+
   .hide {
     display: none;
   }

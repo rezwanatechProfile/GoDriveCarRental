@@ -36,7 +36,19 @@
       <div class="row">
         <div class="text-center">
             <h1 class="text-center m-4">Drive a <%=car.carName%></h1>
-            <p><img class="img-fluid" src="/uploads/<%=car.img%>"></p>
+            <p>
+            
+              <% if(car.tag===true){ %>
+
+                <img src="/uploads/<%=car.img; %>" alt="" class="img-fluid">
+
+                <% } else { %>
+
+                <img src="<%=car.img; %>" alt=""
+                  class="img-fluid">
+
+                  <% } %>
+                  </p>
         </div>
       </div>
     </div>
@@ -70,8 +82,18 @@
                     </li>
                     <% } %>
             </ul> </p>
-            <p><strong>Guidlines:</strong><%=car.description%></p>
-     
+            <p><strong>Guidlines:</strong> <%=car.guidelines; %></p>
+            <p>
+              <strong>Review:</strong> 
+            <ul>
+              <% for (let i = 0; i < customer.comments.length; i++) { %>
+                  <li>
+                  <%=customer.comments[i];%>	
+                  </li>
+                  <% } %>
+            </ul> 
+         
+              </p>
               </div> 
             </div>
           </div>
@@ -84,6 +106,7 @@
               <h3 class="text-left"><strong>$<%=car.pricePerDay%>/Day</strong></h3>
               <h5 class="text-center">Enter Date and pick up location</h5>
               <hr>
+              
               <form action="/cars/cart/<%=car._id; %>?_method=PUT" method="POST">
               <div class="row">
 
@@ -130,22 +153,26 @@
                     <input type="submit" value="Continue" class="btn btn-outline-danger btn-block">
                   </div>
                 </div>
-                
               </div>
+            </form>
+
             </div>
           </div>
 
+<!-- post comments -->
         <div class="card p-4 mt-3">
             <div class="card-body">
 
                 <h5 class="text-center">Review your experience</h5>
                 <hr>
-                <div class="row">
-        
-                    <div class="col-md-12">
+
+                <form action="/cars/review/<%=car._id;%>" method="POST">
+                    <div class="row">
+                      <div class="col-md-12">
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Text"></textarea>
+                            <textarea type="text" name="comments" class="form-control" placeholder="Text"></textarea>
                         </div>
+                      </div>
         
                         <div class="col-md-12 mt-2">
                             <div class="form-group text-center">
@@ -153,7 +180,8 @@
                             </div>
                         </div>
                     </div>
-                </form>
+                  </form>
+                
                 </div>
             </div>
         </div>

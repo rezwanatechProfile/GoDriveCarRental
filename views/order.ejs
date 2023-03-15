@@ -1,73 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <%- include ('./partials/head.ejs') %>
-    <title>Car rental | Book a <%=car.carName%></title>
+  <%- include ('./partials/head.ejs') %>
+    <title>Car rental | Book a <%=car.carName%>
+    </title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-md mb-2 navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand">GoDrive</a>
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        <div class="collapse navbar-collapse ml-auto" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link text-primary" href="/cars">HOME</a></li>
-                <li class="nav-item">
-                    <a class="nav-link text-primary" href="/cars/new">BECOME A HOST</a></li>
-                <li class="nav-item">
-                    <a class="nav-link text-primary" href="/cars/host/">YOUR LIST</a></li>
-            </ul>
-            
-        </div>
-        <form action="" class="form-inline ml-auto d-flex">
-            <input type="text" class="form-control input-search" placeholder="Search">
-            <button class="btn btn-outline-primary">Search</button>
-        </form>
+  <nav class="navbar navbar-expand-md mb-2 navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand">GoDrive</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse ml-auto" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link text-primary" href="/cars">HOME</a></li>
+          <li class="nav-item">
+            <a class="nav-link text-primary" href="/cars/new">BECOME A HOST</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary" href="/cars/host/">YOUR LIST</a>
+          </li>
+        </ul>
+
+      </div>
+      <form action="" class="form-inline ml-auto d-flex">
+        <input type="text" class="form-control input-search" placeholder="Search">
+        <button class="btn btn-outline-primary">Search</button>
+      </form>
     </div>
-    </nav> 
- 
+  </nav>
 
 
-<!-- PAGE HEADER -->
-<header id="page-header">
+
+  <!-- PAGE HEADER -->
+  <header id="page-header">
     <div class="container">
       <div class="row">
         <div class="text-center">
-           
+
         </div>
       </div>
     </div>
   </header>
 
-<section>
+  <section>
     <div class="container mt-5">
-        <div class="card">
-            <div class="card-body text-secondary">
-            <h1 class="mb-2">You selected <%=car.title%>
-            </h1>
-            <p>Your pick up date is <%=car.dateFrom%> and the return date is <%=car.dateTo%>
+      <div class="card">
+        <div class="card-body text-secondary">
+          <h1 class="mb-2">You selected <%=car.title%>
+          </h1>
+          <p>Your pick up date for <%=car.carName%> is <%=car.dateFrom%> and the return date is <%=car.dateTo%>
+          </p>
+<!-- calculation total days bettwen two dates -->
+          <% let c=car.dateFrom let t=car.dateTo let startDate=new Date(c); let endDate=new Date(t); let
+            timeDiff=Math.abs(endDate.getTime() - startDate.getTime()); let totalDays=Math.ceil(timeDiff / (1000 * 3600
+            * 24)); %>
+<!-- total days -->
+            <p>Reserving car for <%= totalDays %> days.</p>
+
+<!-- calculation of total price -->
+            <p>Total Price is: $<%= totalDays * car.pricePerDay%>
+            </p>
+            <p>Location of pick up and return is <%=car.location%>
             </p>
             <div class="d-flex justify-content-evenly mt-5">
-                <form action="/cars/cart/<%=car._id;%>?_method=DELETE" method="POST">
-                    <input class="btn btn-dark border border-danger" type="submit" value="DELETE SELECTION">
-                </form>
+              <form action="/cars/delete/<%=car._id;%>?_method=PUT" method="POST">
+                <input class="btn btn-dark border border-danger" type="submit" value="DELETE SELECTION">
+              </form>
 
-                <form action="/cars/editorder/<%=car._id;%>">
-                    <input class="btn btn-dark border border-danger" type="submit" value="Edit SELECTION">
-                </form>
+              <form action="/cars/editorder/<%=car._id;%>">
+                <input class="btn btn-dark border border-danger" type="submit" value="Edit SELECTION">
+              </form>
 
-                <form action="/cars/confirm/<%=car._id;%>">
-                    <input class="btn btn-dark border border-danger" type="submit" value="CONFIRM RESERVE">
-                </form>
+              <form action="/cars/confirm/<%=car._id;%>">
+                <input class="btn btn-dark border border-danger" type="submit" value="CONFIRM RESERVE">
+              </form>
             </div>
         </div>
 
-        </div>
+      </div>
 
     </div>
-</section>
+  </section>
     
     
 

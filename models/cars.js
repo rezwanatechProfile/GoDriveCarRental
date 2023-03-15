@@ -10,13 +10,13 @@ const carSchema = new mongoose.Schema({
     features: [String],
     pricePerDay: {type: Number, required: true, min:1},
     guidelines: {type: String},
-    dateFrom: {type: Date},
-    dateTo: {type: Date},
+    dateFrom: {type: Date, default: Date.now},
+    dateTo: {type: Date, default: Date.now},
     location: [{type: String}],
     isAvailable: Boolean,
     createdAt: {type: Date, required: true, default: Date.now},
     tag: Boolean,
-    totalTrip: {type: String}
+    totalTrip: {type: String},
 })
 
 const Car = mongoose.model('Car', carSchema)

@@ -1,4 +1,4 @@
-module.exports = [{
+const carSeed = [{
     carName: 'Tesla',
     title: 'Tesla Model 3 2021',
     ownerName: 'Tommy', 
@@ -7,7 +7,7 @@ module.exports = [{
     features: ["Automatic transmission", "All-wheel drive", "Bluetooth", "Heated seats", "GPS", "USB input"],
     pricePerDay: 50,
     rating: 5,
-    guidelines: ['No pets, smoking, vaping, food or drink in the car during the rental. Any spills, smells, hair or damages to the car will incur heavy cleaning charges, so please keep it neat!', 'No Machine Wash! The car is ceramic coated so machine wash will ruin it', 'Renter responsible for the charging costs during rental. You can use the Tesla Superchargers and I will bill you for usage in bulk after your rental.'],
+    guidelines: 'No pets, smoking, vaping, food or drink in the car during the rental. Any spills, smells, hair or damages to the car will incur heavy cleaning charges, so please keep it neat! No Machine Wash! The car is ceramic coated so machine wash will ruin it is Renter responsible for the charging costs during rental. You can use the Tesla Superchargers and I will bill you for usage in bulk after your rental',
     location: 'Alexandria',
     isAvailable: true,
     dateFrom: "03/28/2023",
@@ -23,11 +23,12 @@ module.exports = [{
     features: ['Keyless start', '28 MPG', '4 doors', '5 Seats', 'Rear camera', 'Moonroof', 'Paddle shifters', 'Leather seat', 'Automatic transmission'],
     pricePerDay: 90,
     rating: 5,
-    guidelines: ['Save time, make drop-off a breeze, and avoid additional fees by adding this Extra, which allows you to return my car at any fuel level. Price includes up to a full tank of gas.', 'Car seat will be provided for different ages'],
+    guidelines: 'Save time, make drop-off a breeze, and avoid additional fees by adding this Extra, which allows you to return my car at any fuel level. Price includes up to a full tank of gas. Car seat will be provided for different ages',
     totalTrip: 10,
     dateFrom: "04/28/2023",
     dateTo: "05/04/2023",
     isAvailable: true,
+  
     
   },
   {
@@ -39,11 +40,12 @@ module.exports = [{
     features: ['Must be 21+ to book', 'All-wheel drive', 'AUX input', 'Keyless entry', 'Backup camera', 'GPS', 'Toll pass', 'Heated seats', 'Automatic transmission'],
     pricePerDay: 110,
     rating: 5,
-    guidelines: ['Child car seat or booster available upon request.', 'Car seat will be provided for different ages', 'The vehicle will be parked on the street and will be unlocked once you text that you have arrived'],
+    guidelines: 'Child car seat or booster available upon request. Car seat will be provided for different ages. The vehicle will be parked on the street and will be unlocked once you text that you have arrived',
     totalTrip: 25,
     dateFrom: "03/30/2023",
     dateTo: "04/10/2023",
-    isAvailable: true,  
+    isAvailable: true, 
+     
   },
 
   { carName: 'Toyota',
@@ -54,11 +56,12 @@ module.exports = [{
     features: ['All-wheel drive', 'Bluetooth', 'AUX input', 'Backup camera', 'GPS', 'Toll pass', 'Automatic transmission'],
     pricePerDay: 55,
     rating: 5,
-    guidelines: ['Pick up and drop off instructions will be messaged through Turo, or texted to your number (If international I also use Whatsapp).', 'Gas: Please fill the tank at the end of your trip. This car ONLY takes regular 87 unleaded gas. Gas is not included with your rental so please bring the vehicle back with a FULL tank of gas (You will receive the car with a full tank as well).', 'Lost items: You are responsible for all items you rent from us during your rental. If you lose an item you rented from us, you would be charged for the item. If you left your belongings in the car, contact me and I can save the items for you.' ],
+    guidelines: 'Pick up and drop off instructions will be messaged through Turo, or texted to your number (If international I also use Whatsapp). Gas: Please fill the tank at the end of your trip. This car ONLY takes regular 87 unleaded gas. Gas is not included with your rental so please bring the vehicle back with a FULL tank of gas (You will receive the car with a full tank as well). Lost items: You are responsible for all items you rent from us during your rental. If you lose an item you rented from us, you would be charged for the item. If you left your belongings in the car, contact me and I can save the items for you.',
     totalTrip: 110,
     dateFrom: "03/30/2023",
     dateTo: "04/10/2023",
-    isAvailable: true,  
+    isAvailable: true, 
+    
 },
 {
     carName: 'Toyota',
@@ -69,11 +72,12 @@ module.exports = [{
     features: ['USB charger', 'Bluetooth', 'AUX input', 'Backup camera', 'Apple CarPlay', 'Blind spot warning', 'Automatic transmission'],
     pricePerDay: 49,
     rating: 4.5,
-    guidelines: ['Car is like new inside so no smoking of any kind, or eating in the vehicle', 'No pets in the vehicle.', 'Vehicle should be returned as received, minor cleaning is okay.', 'I recommend choosing the zero deductible insurance that way if there is any new damage during your trip you will pay zero out of pocket.' ],
+    guidelines: 'Car is like new inside so no smoking of any kind, or eating in the vehicle. No pets in the vehicle. Vehicle should be returned as received, minor cleaning is okay. I recommend choosing the zero deductible insurance that way if there is any new damage during your trip you will pay zero out of pocket.',
     totalTrip: 110,
     dateFrom: "03/30/2023",
     dateTo: "04/10/2023",
-    isAvailable: true,  
+    isAvailable: true, 
+     
 
 },
 {
@@ -85,11 +89,12 @@ module.exports = [{
     features: ['Must be 21+ to book', 'USB input', 'USB charger', 'Bluetooth', 'AUX input', 'Backup camera', 'Apple CarPlay', 'Blind spot warning', 'Automatic transmission'],
     pricePerDay: 62,
     rating: 4.78,
-    guidelines: ['Car is like new inside so no smoking of any kind, or eating in the vehicle', 'No pets in the vehicle.', 'Vehicle should be returned as received, minor cleaning is okay.', 'I recommend choosing the zero deductible insurance that way if there is any new damage during your trip you will pay zero out of pocket.' ],
+    guidelines: 'Car is like new inside so no smoking of any kind, or eating in the vehicle. No pets in the vehicle. Vehicle should be returned as received, minor cleaning is okay. I recommend choosing the zero deductible insurance that way if there is any new damage during your trip you will pay zero out of pocket.',
     totalTrip: 39,
     dateFrom: "03/30/2023",
     dateTo: "04/10/2023",
-    isAvailable: true,  
+    isAvailable: true,
+     
 },
 
 {
@@ -101,11 +106,12 @@ module.exports = [{
     features: ['USB input', 'USB charger', 'Bluetooth', 'AUX input', 'Backup camera', 'Automatic transmission'],
     pricePerDay: 45,
     rating: 4.83,
-    guidelines: ['Car is like new inside so no smoking of any kind, or eating in the vehicle', 'No pets in the vehicle.', 'Vehicle should be returned as received, minor cleaning is okay.', 'I recommend choosing the zero deductible insurance that way if there is any new damage during your trip you will pay zero out of pocket.' ],
+    guidelines: 'Car is like new inside so no smoking of any kind, or eating in the vehicle. No pets in the vehicle. Vehicle should be returned as received, minor cleaning is okay. I recommend choosing the zero deductible insurance that way if there is any new damage during your trip you will pay zero out of pocket.' ,
     totalTrip: 56,
     dateFrom: "03/30/2023",
     dateTo: "04/10/2023",
     isAvailable: false,
+    
 
 },
 
@@ -118,11 +124,12 @@ module.exports = [{
     features: ['Must be 21+ to book', 'Keyless entry',' USB input', 'Convertible', 'USB charger', 'GPS', 'Bluetooth', 'AUX input', 'Ventilated seats', 'Backup camera', 'Automatic transmission', 'Heated seats', 'Apple CarPlay', 'Android Auto', 'Digital dashboard'],
     pricePerDay: 85,
     rating: 4.83,
-    guidelines: ['Premium 91 Gas Only', 'Please treat this car as your own. Please respect the rules, drive safely, and bring the car back in the same great shape. Pick-up instructions will be sent after the reservation has been made, usually 1 day before the trip.', 'No smoking or vaping ($250 penalty fee)', '$150 violation fee for abusive and irresponsible cleaning issues.', 'No Pets ($150 penalty fee)', 'Reckless driving, burnouts, donuts, or racing of any kind are prohibited', 'You are responsible for any tolls, traffic or parking tickets, and other liabilities during the rental period ' ],
+    guidelines: 'Premium 91 Gas Only. Please treat this car as your own. Please respect the rules, drive safely, and bring the car back in the same great shape. Pick-up instructions will be sent after the reservation has been made, usually 1 day before the trip. No smoking or vaping ($250 penalty fee), $150 violation fee for abusive and irresponsible cleaning issues. No Pets ($150 penalty fee), Reckless driving, burnouts, donuts, or racing of any kind are prohibited. You are responsible for any tolls, traffic or parking tickets, and other liabilities during the rental period',
     totalTrip: 69,
     dateFrom: "03/25/2023",
     dateTo: "04/10/2023",
     isAvailable: false,
+    
 },
 
 {
@@ -134,11 +141,12 @@ module.exports = [{
   features: ['Must be 21+ to book', 'Tinted Windows', 'Keyless entry',' USB input', 'Convertible', 'USB charger', 'GPS', 'Bluetooth', 'AUX input', 'Ventilated seats', 'Backup camera', 'Automatic transmission', 'Heated seats', 'Apple CarPlay', 'Android Auto', 'Digital dashboard'],
   pricePerDay: 70,
   rating: 4.98,
-  guidelines: ['No smoking 🚭', 'Please be on time when dropping off the vehicle 🕰 , if you would like to modify the booking please let me know as early as possible so that you can be better accommodated.' , 'Be careful to not scratch the rims when parking.'],
+  guidelines: 'No smoking 🚭. Please be on time when dropping off the vehicle 🕰 , if you would like to modify the booking please let me know as early as possible so that you can be better accommodated. Be careful to not scratch the rims when parking.',
   totalTrip: 71,
   dateFrom: "03/18/2023",
   dateTo: "04/10/2023",
   isAvailable: true,
+  
 },
 
 {
@@ -150,11 +158,12 @@ module.exports = [{
   features: ['Must be 21+ to book', 'Tinted Windows', 'Keyless entry',' USB input', 'Convertible', 'USB charger', 'GPS', 'Bluetooth', 'AUX input', 'Ventilated seats', 'Backup camera', 'Automatic transmission', 'Heated seats', 'Apple CarPlay', 'Android Auto', 'Digital dashboard'],
   pricePerDay: 90,
   rating: 4.94,
-  guidelines: ['Dogs are always welcome. Please return car clean and with a full premium gas.'],
+  guidelines: 'Dogs are always welcome. Please return car clean and with a full premium gas.',
   totalTrip: 40,
   dateFrom: "03/18/2023",
   dateTo: "04/10/2023",
   isAvailable: false,
+  
 },
 
 {
@@ -166,11 +175,12 @@ module.exports = [{
   features: ['Must be 21+ to book', 'Automatic transmission', 'Long-term car'],
   pricePerDay: 75,
   rating: 4.92,
-  guidelines: ['If returning earlier/later than pick up/drop off time, guest must give us a 30 minute heads up or will have to wait for our team to receive the vehicle.', 'Keys are not to be left in the vehicle parked under no circumstances. That is an automatic $100 fee for leaving a vehicle unattended.', 'Guests are responsible for the full cost of any key pertaining to the vehicle that is lost/misplaced.', 'NO SMOKING IS PERMITTED. Odor or residue of smoke in the vehicle is a $250 fee. No exceptions', 'When you park, please follow the traffic of the other vehicles at our parking slot.'],
+  guidelines: 'If returning earlier/later than pick up/drop off time, guest must give us a 30 minute heads up or will have to wait for our team to receive the vehicle. Keys are not to be left in the vehicle parked under no circumstances. That is an automatic $100 fee for leaving a vehicle unattended. Guests are responsible for the full cost of any key pertaining to the vehicle that is lost/misplaced. NO SMOKING IS PERMITTED. Odor or residue of smoke in the vehicle is a $250 fee. No exceptions. When you park, please follow the traffic of the other vehicles at our parking slot.',
   totalTrip: 90,
   dateFrom: "03/18/2023",
   dateTo: "04/10/2023",
   isAvailable: true,
+  
 },
 {
   carName: 'Jeep',
@@ -181,11 +191,12 @@ module.exports = [{
   features: ['Must be 21+ to book', 'Tinted Windows', 'Keyless entry',' USB input', 'Convertible', 'USB charger', 'GPS', 'Bluetooth', 'AUX input', 'Ventilated seats', 'Backup camera', 'Automatic transmission', 'Heated seats', 'Apple CarPlay', 'Android Auto', 'Digital dashboard'],
   pricePerDay: 80,
   rating: 4.92,
-  guidelines: ['NO Smoking of any kind in the car', 'No Off-Roading in any way', 'No towing of any sort'],
+  guidelines: 'NO Smoking of any kind in the car. No Off-Roading in any way. No towing of any sort',
   totalTrip: 12,
   dateFrom: "03/18/2023",
   dateTo: "04/10/2023",
   isAvailable: true,
+  
 },
 {
   carName: 'Tesla',
@@ -196,11 +207,12 @@ module.exports = [{
   features: ['Supercharger network access', 'Must be 21+ to book', 'Spotify', 'Keyless entry',' USB input', 'All-season tires with 3-peak snowflake', 'USB charger', 'GPS', 'Bluetooth', 'AUX input', 'Ventilated seats', 'Backup camera', 'Automatic transmission', 'Heated seats', 'Apple CarPlay', 'Android Auto', 'Digital dashboard'],
   pricePerDay: 81,
   rating: 4.95,
-  guidelines: ['Pets are welcome, smoking is not. Please return the car with at least 100 miles of range, the more the better.', 'Always pay attention to the road even if the car is on Autopilot, it is still learning how to drive and might need you to retake control at any time (though most of the time it is very good.'],
+  guidelines: 'Pets are welcome, smoking is not. Please return the car with at least 100 miles of range, the more the better. Always pay attention to the road even if the car is on Autopilot, it is still learning how to drive and might need you to retake control at any time (though most of the time it is very good.',
   totalTrip: 47,
   dateFrom: "03/18/2023",
   dateTo: "04/10/2023",
   isAvailable: false,
+  
 },
 
 {
@@ -212,11 +224,12 @@ module.exports = [{
   features: ['USB input', 'USB charger', 'GPS', 'Bluetooth', 'AUX input', 'Backup camera', 'Automatic transmission', 'Blind spot warning', 'Apple CarPlay'],
   pricePerDay: 35,
   rating: 4.84,
-  guidelines: ['Guests must provide their own insurance or purchase our fleet insurance in order to pick up the designated vehicle.', 'If returning earlier/later than pick up/drop off time, guest must give us a 30 minute heads up or will have to wait for our team to receive the vehicle.'],
+  guidelines: 'Guests must provide their own insurance or purchase our fleet insurance in order to pick up the designated vehicle. If returning earlier/later than pick up/drop off time, guest must give us a 30 minute heads up or will have to wait for our team to receive the vehicle.',
   totalTrip: 8190,
   dateFrom: "03/18/2023",
   dateTo: "04/10/2023",
   isAvailable: true,
+  
 },
 
 {
@@ -228,11 +241,12 @@ module.exports = [{
   features: ['USB input', 'Keyless entry', 'GPS', 'Bluetooth', 'AUX input', 'Backup camera', 'Automatic transmission'],
   pricePerDay: 45,
   rating: 5,
-  guidelines: ['Guests must provide their own insurance or purchase our fleet insurance in order to pick up the designated vehicle.', 'If returning earlier/later than pick up/drop off time, guest must give us a 30 minute heads up or will have to wait for our team to receive the vehicle.'],
+  guidelines: 'Guests must provide their own insurance or purchase our fleet insurance in order to pick up the designated vehicle. If returning earlier/later than pick up/drop off time, guest must give us a 30 minute heads up or will have to wait for our team to receive the vehicle.',
   totalTrip: 2,
   dateFrom: "03/18/2023",
   dateTo: "04/10/2023",
   isAvailable: true,
+  
 },
 
 {
@@ -244,13 +258,32 @@ module.exports = [{
   features: ['Sunroof', 'USB input', 'USB charger', 'GPS', 'Bluetooth', 'AUX input', 'Backup camera', 'Automatic transmission', 'Blind spot warning', 'Apple CarPlay', 'Child seat', 'Toll pass'],
   pricePerDay: 50,
   rating: 4.74,
-  guidelines: ['Please do not smoke in or around the car.', 'If returning earlier/later than pick up/drop off time, 250 miles / day are included in the rental price. $0.50 per extra mile.', 'The car comes with FasTrak. You will be responsible for the toll fees but you can fly through the tolls without stopping rather being frustrated waiting behind the tolls.', 'Car takes 91 octane premium gas ONLY since its LT Model. Upon returning the car, please present your gas receipt to prove premium gas was used.'],
+  guidelines: 'Please do not smoke in or around the car. If returning earlier/later than pick up/drop off time, 250 miles / day are included in the rental price. $0.50 per extra mile. The car comes with FasTrak. You will be responsible for the toll fees but you can fly through the tolls without stopping rather being frustrated waiting behind the tolls. Car takes 91 octane premium gas ONLY since its LT Model. Upon returning the car, please present your gas receipt to prove premium gas was used.',
+  totalTrip: 35,
+  dateFrom: "03/18/2023",
+  dateTo: "04/10/2023",
+  isAvailable: true,
+  
+},
+
+
+{
+  carName: 'Nissan',
+  title: 'Nissan Versa',
+  ownerName: 'Kashif', 
+  img: 'https://images.turo.com/media/vehicle/images/JYSnQzABT06zajz9ag6p1Q.1440x700.jpg',
+  description: 'Credited with starting the hybrid craze, the Toyota Prius revolutionized the alternative powertrain by packaging it into a unique, yet practical 5-door. While its styling may be wacky, part of its mass appeal is due to the fact that it operates much like a normal car.',
+  features: ['Sunroof', 'USB input', 'USB charger', 'GPS', 'Bluetooth', 'AUX input', 'Backup camera', 'Automatic transmission', 'Blind spot warning', 'Apple CarPlay', 'Child seat', 'Toll pass'],
+  pricePerDay: 50,
+  rating: 4.74,
+  guidelines: 'Please do not smoke in or around the car. If returning earlier/later than pick up/drop off time, 250 miles / day are included in the rental price. $0.50 per extra mile. The car comes with FasTrak. You will be responsible for the toll fees but you can fly through the tolls without stopping rather being frustrated waiting behind the tolls. Car takes 91 octane premium gas ONLY since its LT Model. Upon returning the car, please present your gas receipt to prove premium gas was used.',
   totalTrip: 35,
   dateFrom: "03/18/2023",
   dateTo: "04/10/2023",
   isAvailable: true,
 },
 
-
-
 ];
+
+
+module.exports = carSeed
