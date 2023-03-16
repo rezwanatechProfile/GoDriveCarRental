@@ -75,7 +75,7 @@ router.get('/signout', (req, res) => {
 	// you can always access the user IF signed in, in this req object
 	// console.log(req.session.currentUser)
 	req.session.destroy()
-	res.redirect('/cars')
+	res.redirect('/home')
 })
 
 

@@ -14,9 +14,10 @@ const carSchema = new mongoose.Schema({
     dateTo: {type: Date, default: Date.now},
     location: [{type: String}],
     isAvailable: Boolean,
-    createdAt: {type: Date, required: true, default: Date.now},
+
     tag: Boolean,
     totalTrip: {type: String},
+    comments: [{type: String}]
 })
 
 const Car = mongoose.model('Car', carSchema)

@@ -6,7 +6,7 @@
 	</head>
 	<body>
 	
-		<nav class="navbar navbar-expand-lg mb-2 navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg mb-2 navbar-dark bg-dark">
 			<div class="container">
 				<a class="navbar-brand">GoDrive</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,21 +15,18 @@
 
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link text-primary" href="/cars">HOME</a></li>
-					<li class="nav-item">   
+          <li class="nav-item">
+						<a class="nav-link text-primary" href="/cars">HOME</a></li>
+					<li class="nav-item">
 						<a class="nav-link text-primary" href="/cars/new">BECOME A HOST</a></li>
 					<li class="nav-item">
-						<a class="nav-link text-primary" href="/cars/host/">YOUR LISTING</a></li>
+						<a class="nav-link text-primary" href="/cars/host/">YOUR LISTING</a></li>  
+            <li class="nav-item">
+              <a class="nav-link text-primary" href="/users/signout">SIGN OUT</a>
+            </li>
 				</ul>
 			</div>
-
-			<form action="" class="form-inline ml-auto d-flex">
-				<input type="text" class="form-control input-search" placeholder="Search">
-				<button class="btn btn-outline-primary">Search</button>
-			</form>
-			
-		</div>
-  </nav> 
+  </nav>  
 
 <!-- //header -->
 		<header id="final-page-header">
@@ -40,7 +37,7 @@
             <div class="card-body text-dark">
               <h4 class="text-primary">Reservation is confirmed. You will receive email from GoDrive
                 with confirmation number.</h4>
-                <p>You reserved <%=car.carName%> from <%=car.dateFrom%> to <%=car.dateTo%></p>
+                
              
               
                 <% 
@@ -49,13 +46,17 @@
   let startDate = new Date(c);
   let endDate = new Date(t);
   let timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
-  let totalDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+  let totalDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+  const year = c.getFullYear();
+    const month = c.getMonth() + 1; // Add 1 because months are zero-indexed
+    const day = c.getDate(); 
+    const month_t = t.getMonth() + 1; // Add 1 because months are zero-indexed
+    const day_t = t.getDate(); 
 %>
+<p>You reserved <%=car.carName%> from <%=month%>/<%=day%>/<%=year%> to <%=month_t%>/<%=day_t%>/<%=year%> for <%= totalDays %> days.</p>
 
-<p>Reserving car for <%= totalDays %> days.</p>
-
-               <p>Your Total Price is: $<%= totalDays * car.pricePerDay%></p>
-              <p class="text-center">Thank you for choosing GoDrive!!</p>
+               <p>You paid $<%= totalDays * car.pricePerDay%></p>
+              <p class="text-center"><strong>Thank you for choosing GoDrive!!</strong></p>
             </div>
           </div>
 				</div>

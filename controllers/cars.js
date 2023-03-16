@@ -1,10 +1,25 @@
 const express = require('express');
 const router = express.Router()
 const Car = require('../models/cars.js')
-const Customer = require('../models/customer.js')
 const carSeed = require('../models/carseed.js');
 const multer = require('multer')
 const path = require('path')
+
+// custom middleware to require authentication on routes 
+const authRequired = (req, res, next) => {
+	console.log(req.session.currentUser)
+	if (req.session.currentUser) {
+		// a user is signed in 
+		next() 
+		// next is part of express
+		// it does what it says 
+		// i.e., go on to the next thing
+	} else {
+		// if there is no user 
+		res.send('You must be logged in to do that!')
+		// res.redirect('/users/signin')
+	}
+}
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -22,6 +37,7 @@ const upload = multer({storage: storage})
 
 //Seed
 router.get('/seed', (req, res) => {
+  Car.deleteMany({}, (error, allCars) => {});
 	Car.create(carSeed, (error, data) => {
 		res.redirect('/cars');
 	});
@@ -30,15 +46,13 @@ router.get('/seed', (req, res) => {
 
 //INDEX
 router.get("/", (req,res)=>{
-    Car.find({}, (error, allCars)=> {
+
+  Car.find({}, (error, allCars)=> {
         res.render("index.ejs", {
-            cars: allCars
+            cars: allCars,
         })
     })
 });
-
-
-
 
 //HOST INDEX
 router.get("/host", (req,res)=>{
@@ -54,6 +68,8 @@ router.get("/host", (req,res)=>{
 router.get("/new", (req, res) => {
     res.render("new.ejs")
 })
+
+
 
 
 //order page(to delete, edit and confirm)
@@ -100,6 +116,24 @@ router.put('/delete/:id',(req,res)=>{
             res.redirect('/cars/'+ req.params.id)            
         }
     })
+})
+
+
+//DELETE
+
+//DELETE host listing
+router.delete('/host/:id',(req,res)=>{
+
+  Car.findByIdAndDelete(req.params.id,(error, deletedCar)=>{
+      //findBy
+      if(error){
+          console.log(error)
+          res.send(error)
+      }else{
+          console.log(deletedCar)
+          res.redirect('/cars')
+      }
+  })
 })
 
 
@@ -175,6 +209,7 @@ router.post("/host", upload.single('img'), (req, res) => {
 })
 
 
+
 //EDIT the order after renter show page
 router.get('/editorder/:id', (req, res) => {
 	Car.findById(req.params.id, (err, foundCar) => {
@@ -190,22 +225,6 @@ router.get('/editorder/:id', (req, res) => {
 	})
 })
 
-//DELETE
-
-//DELETE host listing
-router.delete('/host/:id',(req,res)=>{
-
-    Car.findByIdAndDelete(req.params.id,(error, deletedCar)=>{
-        //findBy
-        if(error){
-            console.log(error)
-            res.send(error)
-        }else{
-            console.log(deletedCar)
-            res.redirect('/cars')
-        }
-    })
-})
 
 
 //UPDATE in hostshow page
@@ -231,53 +250,31 @@ router.put('/:id', (req, res) => {
 	})
 })
 
-//post reviews
-// router.post('/review/:id', (req, res) => {
-// 	Car.findByIdAndUpdate(req.params.id, req.body, { new: true}, 
-// 	(err, selectedCar) => {
+//Comments update
+router.put('/review/:id', (req, res) => {
 
-// 		if(err) {
-// 			console.log(err)
-// 			res.send(err)
-// 		} else {
-// 			console.log(selectedCar)
-// 			// redirect to the index route 
-// 			res.redirect('/cars/'+req.params.id)
-// 		}
+	Car.findByIdAndUpdate(req.params.id, req.body, { new: true,}, 
+	(err, updatedCar) => {
+		if(err) {
+			console.log(err)
+			res.send(err)
+		} else {
+			console.log(updatedCar)
+			// redirect to the index route 
+			res.redirect('/cars/'+req.params.id)
+		}
 
-// 	})
-// })
-
-
-// //CREATE
-// //Post Reviews
-router.post('/review/:id', (req, res) => {
-
-  Customer.create(req.body.id, req.body, (error, createdCar)=>{
-
-      if (error){
-        console.log(error);
-        res.send(error);
-      }
-      else{
-        res.redirect('/cars/'+req.params.id)
-       
-  }
-        
-      
-
-      
-  }); 
-  
+	})
 })
 
 
 
 //SHOW
 router.get('/:id', (req,res) => {
-    Car.findById(req.params.id, (err, foundCar, foundCus) => {
+    Car.findById(req.params.id, (err, foundCar) => {
         res.render("show.ejs", {
-            car: foundCar
+            car: foundCar,
+
         })
     }) 
 
@@ -292,14 +289,6 @@ router.get('/host/:id', (req,res) => {
     }) 
 })
 
-// router.get('/show/:id', (req,res) => {
-//   Customer.findById(req.params.id, (err, foundCus) => {
-//     res.render("hostShow.ejs", {
-//         customer: foundCus
-//     })
-// })  
-
-// })
 
 
 

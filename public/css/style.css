@@ -33,9 +33,9 @@ nav .logo {
     width: 80px;
 }
 
-/* .navbar-expand-lg .navbar-collapse {
+.navbar-expand-lg .navbar-collapse {
   justify-content: flex-end;
-} */
+}
 
 nav ul li {
     list-style: none;

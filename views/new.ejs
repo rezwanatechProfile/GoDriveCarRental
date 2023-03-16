@@ -12,26 +12,20 @@
   <nav class="navbar navbar-expand-lg mb-2 navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand">GoDrive</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-primary" href="/cars">HOME</a></li>
           <li class="nav-item">
-            <a class="nav-link text-primary" href="/cars">HOME</a>
+            <a class="nav-link text-primary" href="/users/signout">SIGN OUT</a>
           </li>
-        </ul>
-      </div>
-
-      <form action="" class="form-inline ml-auto d-flex">
-        <input type="text" class="form-control input-search" placeholder="Search">
-        <button class="btn btn-outline-primary">Search</button>
-      </form>
-
+      </ul>
     </div>
-  </nav>
+</nav>  
 
 
   <!-- //header -->
@@ -60,13 +54,13 @@
                   <div class="col-md-6 mt-2">
                     <div class="form-group">
                       <label>Car</label>
-                      <input type="text" name="carName" class="form-control" placeholder="Car Name">
+                      <input type="text" name="carName" class="form-control" placeholder="Car Name" required>
                     </div>
                   </div>
                   <div class="col-md-6 mt-2">
                     <div class="form-group">
                       <label>Title</label>
-                      <input type="text" name="title" class="form-control" placeholder="ex: Toyota Camry 2022">
+                      <input type="text" name="title" class="form-control" placeholder="ex: Toyota Camry 2022" required>
                     </div>
                   </div>
                   <div class="col-md-6 mt-2">
@@ -86,14 +80,14 @@
                   <div class="col-md-3 mt-2">
                     <div class="form-group">
                       <label>Price Per Day</label>
-                      <input type="number" name="pricePerDay" class="form-control" placeholder="$">
+                      <input type="number" name="pricePerDay" class="form-control" placeholder="$" required>
                     </div>
                   </div>
 
                   <div class="col-md-12 mt-2">
                     <div class="form-group">
                       <label>Image</label>
-                      <input type="file" name="img" accept="uploads/*" class="form-control" placeholder="">
+                      <input type="file" name="img" accept="uploads/*" class="form-control" placeholder="" required>
                     </div>
                   </div>
 
