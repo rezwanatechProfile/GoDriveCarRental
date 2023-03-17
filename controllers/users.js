@@ -54,8 +54,9 @@ router.post('/signin', (req, res) => {
 			// if the passwords match, log them in 
 			if(validLogin) {
 				req.session.currentUser = foundUser
-				// we are letting the session know 
+				// we are letting the session know   
 				// that we have logged in
+        console.log(req.body.username)
 				res.redirect('/cars')
 			} else {
 				res.send('Invalid username or password')

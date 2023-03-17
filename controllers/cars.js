@@ -16,7 +16,7 @@ const authRequired = (req, res, next) => {
 		// i.e., go on to the next thing
 	} else {
 		// if there is no user 
-		res.send('You must be logged in to do that!')
+		res.redirect('/home')
 		// res.redirect('/users/signin')
 	}
 }
@@ -55,7 +55,7 @@ router.get("/", (req,res)=>{
 });
 
 //HOST INDEX
-router.get("/host", (req,res)=>{
+router.get("/host", authRequired, (req,res)=>{
     Car.find({}, (error, allCars)=> {
         res.render("hostIndex.ejs", {
             cars: allCars
@@ -65,7 +65,7 @@ router.get("/host", (req,res)=>{
 
 
 //NEW
-router.get("/new", (req, res) => {
+router.get("/new", authRequired, (req, res) => {
     res.render("new.ejs")
 })
 
