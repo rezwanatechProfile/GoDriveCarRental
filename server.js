@@ -9,8 +9,6 @@ const usersController = require('./controllers/users.js')
 require('dotenv').config();
 
 
-
-
 const session = require('express-session')
 const SESSION_SECRET = process.env.SESSION_SECRET
 console.log('Here is the session secret')

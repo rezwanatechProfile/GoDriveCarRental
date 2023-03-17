@@ -42,6 +42,7 @@ router.get('/signin', (req, res) => {
 	res.render('users/signin.ejs')
 })
 
+
 router.post('/signin', (req, res) => {
 	// we need to get the user with that username 
 	User.findOne({username: req.body.username}, (err, foundUser) => {
@@ -56,6 +57,7 @@ router.post('/signin', (req, res) => {
 				req.session.currentUser = foundUser
 				// we are letting the session know   
 				// that we have logged in
+        foundUser.save()
         console.log(req.body.username)
 				res.redirect('/cars/index')
 			} else {
@@ -69,6 +71,26 @@ router.post('/signin', (req, res) => {
 		}
 	})
 })
+
+//USER INDEX
+// router.get('/account', (req, res) => {
+//   User.find({}, (err, createdUser) => {
+//     if(createdUser) {
+// 				req.session.currentUser = createdUser
+//         res.render('users/account.ejs', {
+//           user: createdUser
+//         })
+//         console.log(req.body)
+ 
+// 		} else {
+// 			res.send('Invalid username')
+// 		}
+
+//   })
+	
+// })
+
+
 
 // DESTROY session route 
 router.get('/signout', (req, res) => {

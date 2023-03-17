@@ -6,31 +6,48 @@
 	</head>
 	<body>
 	
-		<nav class="navbar navbar-expand-lg mb-2 navbar-dark bg-dark">
-			<div class="container">
-				<a class="navbar-brand" href="/cars/index">GoDrive</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				  </button>
-
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-          <li class="nav-item">
-						<a class="nav-link text-primary link-warning active" href="/cars/index">HOME</a></li>
-					<li class="nav-item">
-						<a class="nav-link text-light link-warning" href="/cars/new">BECOME A HOST</a></li>
-					<li class="nav-item">
-						<a class="nav-link text-light link-warning" href="/cars/host/">YOUR LISTING</a></li>  
+    <nav class="navbar navbar-expand-lg mb-2 navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/cars/index">GoDrive</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link text-light link-warning" href="/users/signout">SIGN OUT</a>
+              <a class="nav-link text-primary link-warning active" href="/cars/index">HOME</a>
             </li>
-				</ul>
-			</div>
-      <form action="/cars/index" method="GET" class="ml-auto d-flex">
-        <input type="text" name="carName" value="<%=searchOptions.name %>" class="search-form form-control" placeholder="Search">
-        <button type="submit" class="btn btn-outline-success">Search</button>
-    </form>
-  </nav>  
+            <li class="nav-item">
+              <a class="nav-link text-light link-warning" href="/cars/new">BECOME A HOST</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light link-warning" href="/cars/host/">YOUR LISTING</a>
+            </li>
+            
+          </ul>
+        </div>
+        <form action="/cars/index" method="GET" class="ml-auto d-flex search-form">
+          <input type="text" name="carName" value="<%=searchOptions.carName %>" class="search-form form-control"
+            placeholder="Search">
+          <button type="submit" class="btn btn-outline-success">Search</button>
+        </form>
+
+        <ul class="mb-0">
+          <li class="nav-item dropdown">
+          <a class="btn btn-success circle dropdown-toggle" data-bs-toggle="dropdown">YOU</a>             
+          <div class="dropdown-menu bg-dark">
+              <a href="#" class="nav-link dropdown-item text-light link-warning">Account</a>
+              <a href="#" class=" nav-link dropdown-item text-light link-warning">Get Approved</a>
+              <a href="/users/signout" class="dropdown-item nav-link text-light link-warning" >SIGN OUT</a>
+          </div>
+      </li></ul> 
+        
+      </div>
+
+     
+    </nav>
 
 <!-- //header -->
 		<header id="page-header">
@@ -49,7 +66,6 @@
 <!-- list of cars -->
 	<section id="list" class="py-3 mt-2">
 		<div class="container">
-			
 			<div class="row">
 			<%cars.forEach(car=> {%>
 				<div class="col-md-4">
@@ -92,9 +108,7 @@
 		</div>
 	</section> 
 
-		<footer>
-			
-		</footer>
+  <%- include ('./partials/footer.ejs') %>
 
 	</body>
 </html>  

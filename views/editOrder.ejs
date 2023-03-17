@@ -20,10 +20,17 @@
           <a class="nav-link text-primary link-warning" href="/cars/new">BECOME A HOST</a></li>
           <li class="nav-item">
 						<a class="nav-link text-primary link-warning" href="/cars/host/">YOUR LISTING</a></li>  
-          <li class="nav-item">
-            <a class="nav-link text-primary link-warning" href="/users/signout">SIGN OUT</a>
-          </li>
       </ul>
+
+      <ul class="acc-link mb-0">
+        <li class="nav-item dropdown">
+        <a class="btn btn-success circle dropdown-toggle" data-bs-toggle="dropdown">YOU</a>             
+        <div class="dropdown-menu bg-dark">
+            <a href="#" class="nav-link dropdown-item text-light link-warning">Account</a>
+            <a href="#" class=" nav-link dropdown-item text-light link-warning">Get Approved</a>
+            <a href="/users/signout" class="dropdown-item nav-link text-light link-warning" >SIGN OUT</a>
+        </div>
+    </li></ul> 
     </div>
 </nav>  
 
@@ -93,8 +100,6 @@
                     </div>
                   </div>
 
-                <!-- <label>To</label>
-                <br />
                 </div>
               </form>
             </div>
@@ -103,11 +108,9 @@
       </div>
     </div>
   </section>
-   
-
-    <div class="text">
-        
-    </div>
+ 
+   <!-- footer -->
+   <%- include ('./partials/footer.ejs') %>
 
 </body>
-</html>
+</html> 

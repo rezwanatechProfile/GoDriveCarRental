@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ('../partials/head.ejs') %>
+		<title>GoDrive | Car Sharing Marketplace</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg mb-2 navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/cars/index">GoDrive</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-primary link-warning active" href="/cars/index">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light link-warning" href="/cars/new">BECOME A HOST</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light link-warning" href="/cars/host/">YOUR LISTING</a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <ul class="mb-0">
+        <li class="nav-item dropdown">
+        <a class="btn btn-success circle dropdown-toggle" data-bs-toggle="dropdown">YOU</a>             
+        <div class="dropdown-menu bg-dark">
+            <a href="#" class="nav-link dropdown-item text-light link-warning">Account</a>
+            <a href="#" class=" nav-link dropdown-item text-light link-warning">Get Approved</a>
+            <a href="/users/signout" class="dropdown-item nav-link text-light link-warning" >SIGN OUT</a>
+        </div>
+    </li></ul> 
+      
+    </div>
+
+   
+  </nav>
+
+  <section>
+    <div class="container">
+      <div class="card-body text-dark">
+        <div class="card p-5">
+          <p>Your username: <%=user.username%>
+          </p>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+</body>
+</html>

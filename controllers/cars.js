@@ -43,7 +43,7 @@ const upload = multer({storage: storage})
 // 	});
 // });
 
-
+//INDEX with (search Bar)
 router.get('/index', async (req, res) => {
   let searchOptions = {}
   if (req.query.carName != null && req.query.carName !== '') {
@@ -60,17 +60,6 @@ router.get('/index', async (req, res) => {
   }
 })
 
-
-
-//INDEX
-// router.get("/index", (req,res)=>{
-
-//   Car.find({}, (error, allCars)=> {
-//         res.render("index.ejs", {
-//             cars: allCars,
-//         })
-//     })
-// });
 
 //HOST INDEX
 router.get("/host", authRequired, (req,res)=>{
