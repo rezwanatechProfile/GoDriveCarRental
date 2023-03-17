@@ -1,6 +1,9 @@
 {
   "name": "godrivecarrental",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.12.1"
+  },
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -8,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rezwanatechProfile/RezCarRental.git"
+    "url": "git+https://github.com/rezwanatechProfile/GoDriveCarRental.git"
   },
   "author": "Rezwana",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rezwanatechProfile/RezCarRental/issues"
+    "url": "https://github.com/rezwanatechProfile/GoDriveCarRental/issues"
   },
-  "homepage": "https://github.com/rezwanatechProfile/RezCarRental#readme",
+  "homepage": "https://github.com/rezwanatechProfile/GoDriveCarRental#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "bootstrap-icons": "^1.10.3",
