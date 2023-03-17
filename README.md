@@ -1,9 +1,9 @@
 # The Car sharing App
 
 #### A full crud web app designed to rent or share car from DMV area.
-<img src="./uploads/home.jpg" alt="Home Page Welcome Screen"/>
-<img src="./uploads/cars.jpg" alt="Cars Index Page"/>
-<img src="./uploads/show.jpg" alt="Cars Show Page"/>
+<img src="./public/uploads/home.jpg" alt="Home Page Welcome Screen"/>
+<img src="./public/uploads/cars.jpg" alt="Cars Index Page"/>
+<img src="./public/uploads/show.jpg" alt="Cars Show Page"/>
 
 
 ## Description
@@ -31,8 +31,8 @@ The "GoDrive" car sharing site is my first attempt to create a multi-page websit
 * Users can run full C.R.U.D. operation on 3 models
 
 ## Whiteboard Images
-<img src="./uploads/scetch_1.jpg" alt="Scetch1"/>
-<img src="./uploads/scetch_2.jpg" alt="Scetch2"/>
+<img src="./public/uploads/scetch_1.jpg" alt="Scetch1"/>
+<img src="./public/uploads/scetch_2.jpg" alt="Scetch2"/>
 
 
 ## <a name="design"></a>Design
