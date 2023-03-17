@@ -15,13 +15,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-light" href="/cars">HOME</a></li>
+          <a class="nav-link text-light link-warning" href="/cars/index">HOME</a></li>
           <li class="nav-item">
-						<a class="nav-link text-light" href="/cars/new">BECOME A HOST</a></li>
+						<a class="nav-link text-light link-warning" href="/cars/new">BECOME A HOST</a></li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="/cars/host/">YOUR LISTING</a></li>  
+          <a class="nav-link text-light link-warning" href="/cars/host/">YOUR LISTING</a></li>  
           <li class="nav-item">
-            <a class="nav-link text-light" href="/users/signout">SIGN OUT</a>
+            <a class="nav-link text-light link-warning" href="/users/signout">SIGN OUT</a>
           </li>
       </ul>
     </div>
@@ -171,7 +171,7 @@
                 <div class="col-md-12 mt-2">
                   <div class="form-group">
                     <label>Guidlines</label>
-                    <input type="text" name ="guidelines" value="<%=car.guidelines; %>" class="form-control" placeholder="text">
+                    <textarea type="text" name ="guidelines" value="<%=car.guidelines; %>" class="form-control"></textarea>
                   </div>
                 </div>
 
@@ -185,7 +185,7 @@
             
             <div class="mt-2 text-center">
               <form action="/cars/host/<%=car._id;%>?_method=DELETE" method="POST">
-                <input type="submit" value="DELETE SELECTION" class="btn btn-outline-danger btn-block">
+                <input type="submit" value="DELETE YOUR LIST" class="btn btn-outline-danger btn-block">
               </form>
             </div>
             </div>

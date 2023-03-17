@@ -60,7 +60,7 @@ The "GoDrive" car sharing site is my first attempt to create a multi-page websit
 
 
 ## <a name="author"></a>About The Author
-I build web applications, porfolios, testing before deployment tied to my various interests. I look for creative solutions to real world problems and think of technical ways to address them. 
+I build web applications, porfolios, do lots of testing before deployment. I look for creative solutions to real world problems and think of technical ways to address them. 
     
 ## Works Cited:
 * N/A

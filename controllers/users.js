@@ -32,7 +32,7 @@ router.post('/register', (req, res) => {
 			User.create(req.body, (err, createdUser) => {
 				console.log(createdUser)
 				req.session.currentUser = createdUser
-				res.redirect('/cars')
+				res.redirect('/cars/index')
 			})
 		}
 	})
@@ -57,7 +57,7 @@ router.post('/signin', (req, res) => {
 				// we are letting the session know   
 				// that we have logged in
         console.log(req.body.username)
-				res.redirect('/cars')
+				res.redirect('/cars/index')
 			} else {
 				res.send('Invalid username or password')
 			}
@@ -76,7 +76,7 @@ router.get('/signout', (req, res) => {
 	// you can always access the user IF signed in, in this req object
 	// console.log(req.session.currentUser)
 	req.session.destroy()
-	res.redirect('/home')
+	res.redirect('/')
 })
 
 

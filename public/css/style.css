@@ -46,6 +46,10 @@ nav ul li {
     text-decoration: underline;
 }
 
+.search-form {
+  margin-right: 10px;
+
+}
 .navbar {
     border-bottom: #008ed6 3px solid;
     opacity: 0.8;

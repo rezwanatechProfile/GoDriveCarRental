@@ -16,7 +16,7 @@ const authRequired = (req, res, next) => {
 		// i.e., go on to the next thing
 	} else {
 		// if there is no user 
-		res.redirect('/home')
+		res.redirect('/')
 		// res.redirect('/users/signin')
 	}
 }
@@ -36,23 +36,41 @@ const upload = multer({storage: storage})
 //Routes
 
 //Seed
-router.get('/seed', (req, res) => {
-  Car.deleteMany({}, (error, allCars) => {});
-	Car.create(carSeed, (error, data) => {
-		res.redirect('/cars');
-	});
-});
+// router.get('/seed', (req, res) => {
+//   Car.deleteMany({}, (error, allCars) => {});
+// 	Car.create(carSeed, (error, data) => {
+// 		res.redirect('/cars/index');
+// 	});
+// });
+
+
+router.get('/index', async (req, res) => {
+  let searchOptions = {}
+  if (req.query.carName != null && req.query.carName !== '') {
+    searchOptions.carName = new RegExp(req.query.carName, 'i')
+  }
+  try {
+    const cars = await Car.find(searchOptions)
+    res.render('index.ejs', {
+      cars: cars,
+      searchOptions: req.query
+    })
+  } catch {
+    res.redirect('/index')
+  }
+})
+
 
 
 //INDEX
-router.get("/", (req,res)=>{
+// router.get("/index", (req,res)=>{
 
-  Car.find({}, (error, allCars)=> {
-        res.render("index.ejs", {
-            cars: allCars,
-        })
-    })
-});
+//   Car.find({}, (error, allCars)=> {
+//         res.render("index.ejs", {
+//             cars: allCars,
+//         })
+//     })
+// });
 
 //HOST INDEX
 router.get("/host", authRequired, (req,res)=>{
@@ -131,7 +149,7 @@ router.delete('/host/:id',(req,res)=>{
           res.send(error)
       }else{
           console.log(deletedCar)
-          res.redirect('/cars')
+          res.redirect('/cars/index')
       }
   })
 })

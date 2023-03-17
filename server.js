@@ -59,12 +59,11 @@ app.use('/users', usersController)
 
 
 
-app.get("/home", (req,res)=> {
-    res.render("home.ejs", {
-})
+//HOME
+app.get("/", (req,res)=> {
+  res.render("home.ejs", {
+ })
 });
-
-
 
 
 // PORT
