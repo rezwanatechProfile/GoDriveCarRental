@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router()
 const Car = require('../models/cars.js')
-const carSeed = require('../models/carseed.js');
+// const carSeed = require('../models/carseed.js');
 const multer = require('multer')
 const path = require('path')
 
