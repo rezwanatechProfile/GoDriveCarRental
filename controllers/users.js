@@ -7,7 +7,7 @@ const router = express.Router()
 const User = require('../models/users.js')
 
 router.get('/register', (req, res) => {
-	res.render('/users/register.ejs')
+	res.render('users/register.ejs')
 })
 
 router.post('/register', (req, res) => {
@@ -39,7 +39,7 @@ router.post('/register', (req, res) => {
 })
 
 router.get('/signin', (req, res) => {
-	res.render('/users/signin.ejs')
+	res.render('users/signin.ejs')
 })
 
 
