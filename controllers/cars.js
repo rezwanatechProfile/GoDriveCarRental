@@ -143,6 +143,22 @@ router.delete('/host/:id',(req,res)=>{
   })
 })
 
+//DELETE
+router.delete('/:id',(req,res)=>{
+
+  Car.findByIdAndDelete(req.params.id,(error, deletedCar)=>{
+      //findBy
+      if(error){
+          console.log(error)
+          res.send(error)
+      }else{
+          console.log(deletedCar)
+          res.redirect('/cars/index')
+      }
+  })
+})
+
+
 
 //UPDATE in order page from show page (after clicking reserve button)
 router.put('/cart/:id', (req, res) => {

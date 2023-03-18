@@ -72,23 +72,7 @@ router.post('/signin', (req, res) => {
 	})
 })
 
-//USER INDEX
-// router.get('/account', (req, res) => {
-//   User.find({}, (err, createdUser) => {
-//     if(createdUser) {
-// 				req.session.currentUser = createdUser
-//         res.render('users/account.ejs', {
-//           user: createdUser
-//         })
-//         console.log(req.body)
- 
-// 		} else {
-// 			res.send('Invalid username')
-// 		}
 
-//   })
-	
-// })
 
 
 
