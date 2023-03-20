@@ -7,7 +7,6 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "netlify deploy --prod",
     "start": "node server.js",
     "auto": "npx nodemon server.js"
   },
@@ -30,9 +29,6 @@
     "express-session": "^1.17.3",
     "method-override": "^3.0.0",
     "mongoose": "^6.0.1",
-    "multer": "^1.4.5-lts.1",
-    "netlify-cli": "^13.1.6",
-    "netlify-lambda": "^2.0.16",
-    "serverless-http": "^3.2.0"
+    "multer": "^1.4.5-lts.1"
   }
 }
