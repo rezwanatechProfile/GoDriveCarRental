@@ -4,7 +4,7 @@
   "engines": {
     "node": "18.12.1"
   },
-  "description": "",
+  "description": "#### A full crud web app designed to rent or share car from DMV area. <img src=\"./public/uploads/home.jpg\" alt=\"Home Page Welcome Screen\"/> <img src=\"./public/uploads/cars.jpg\" alt=\"Cars Index Page\"/> <img src=\"./public/uploads/show.jpg\" alt=\"Cars Show Page\"/>",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

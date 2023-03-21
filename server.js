@@ -50,13 +50,13 @@ db.on('disconnected', () => {
 })
 
 
+
+
 // MIDDLEWARE
+app.use(express.static('public')); 
+app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride("_method"))// This will allow us to make delete and put request
-app.use(express.static('public')); 
-app.use('/cars', carsController)
-app.use('/users', usersController)
-
 
 
 //HOME
@@ -65,6 +65,8 @@ app.get("/", (req,res)=> {
  })
 });
 
+app.use('/cars', carsController)
+app.use('/users', usersController)
 
 
 //PORT

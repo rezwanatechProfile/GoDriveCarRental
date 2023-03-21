@@ -43,6 +43,9 @@ const upload = multer({storage: storage})
 // 	});
 // });
 
+
+
+
 //INDEX with (search Bar)
 router.get('/index', async (req, res) => {
   let searchOptions = {}
@@ -56,7 +59,7 @@ router.get('/index', async (req, res) => {
       searchOptions: req.query
     })
   } catch {
-    res.redirect('/index')
+    res.redirect('/cars/index')
   }
 })
 
@@ -144,19 +147,19 @@ router.delete('/host/:id',(req,res)=>{
 })
 
 //DELETE
-router.delete('/:id',(req,res)=>{
+// router.delete('/:id',(req,res)=>{
 
-  Car.findByIdAndDelete(req.params.id,(error, deletedCar)=>{
-      //findBy
-      if(error){
-          console.log(error)
-          res.send(error)
-      }else{
-          console.log(deletedCar)
-          res.redirect('/cars/index')
-      }
-  })
-})
+//   Car.findByIdAndDelete(req.params.id,(error, deletedCar)=>{
+//       //findBy
+//       if(error){
+//           console.log(error)
+//           res.send(error)
+//       }else{
+//           console.log(deletedCar)
+//           res.redirect('/cars/index')
+//       }
+//   })
+// })
 
 
 
